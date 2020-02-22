@@ -21,7 +21,7 @@ import { Link, Redirect } from 'react-router-dom'
 import React, { Component } from 'react'
 import axios from 'axios'
 
-export default class Navigation extends Component {
+export default class Navigation2 extends Component {
 
 
   constructor(props) {
@@ -83,23 +83,23 @@ submitForm = (e) => {
         <Container>
           <div>
             <Navbar color="light" light expand="md">
-              <NavbarBrand href="/">DocApp</NavbarBrand>
+              <NavbarBrand href="/Dashboard">DocApp</NavbarBrand>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="mr-auto" navbar>
-                  {/* <NavItem>
-                    <NavLink href="/components/">Components</NavLink>
-                  </NavItem> */}
+              
                   <NavItem>
                     <NavLink href="/about/">About</NavLink>
                   </NavItem>
+               
                   <NavItem>
-                    <NavLink href="/Registration/">Registration</NavLink>
-                  </NavItem>
-                  {/* <NavItem>
                     <NavLink href="/Dashboard">Dashboard</NavLink>
-                  </NavItem> */}
-                  <UncontrolledDropdown nav inNavbar>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/Profile">My Profile</NavLink>
+                  </NavItem>
+                  
+                  {/* <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
                       Options
                  </DropdownToggle>
@@ -116,7 +116,7 @@ submitForm = (e) => {
                 </DropdownItem>
                     </DropdownMenu>
 
-                  </UncontrolledDropdown>
+                  </UncontrolledDropdown> */}
 
                 </Nav>
                 <div className="Login">

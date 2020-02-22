@@ -12,6 +12,7 @@ import { Router, browserHistory } from 'react-router-dom';
 import Registration from './components/Registration';
 import Dashboard from './components/Dashboard';
 import DocRegistration from './components/DocRegistration';
+import Profile from './components/Profile';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <Route path= '/Registration' component={Registration}/>
       <Route path='/Dashboard' component={Dashboard}/>
       <Route path='/DocRegistration' component={DocRegistration}/>
+      <Route path='/Profile' component={Profile}/>
       </BrowserRouter> } 
   
     
