@@ -28,34 +28,7 @@ export default class About extends Component {
         <Container>
 
           <ImageContainer>
-            <div className="about">
-              <Button color="primary" onClick={this.toggle}>Login</Button>
-
-              <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                <ModalHeader toggle={this.toggle}>Login</ModalHeader>
-
-                <Form>
-                  <Col>
-                    <FormGroup>
-                      <Label for='username'>Username</Label>
-                      <Input type='text' name='username' id='username' />
-                    </FormGroup>
-                  </Col>
-                  <Col>
-                    <FormGroup>
-                      <Label for='password'>Password</Label>
-                      <Input type='password' name='password' id='password' />
-                    </FormGroup>
-                  </Col>
-                  &nbsp; &nbsp; <Button color="primary" type="submit">Submit</Button>
-                  <FormText>&nbsp; &nbsp;Not yet a user? Sign Up here!</FormText>
-                </Form>
-                <ModalFooter>
-                  <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-                  <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                </ModalFooter>
-              </Modal>
-            </div>
+  
             <div className="Image1">
               <Row>
                 <Col xs="6">
