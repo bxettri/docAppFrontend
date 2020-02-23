@@ -133,10 +133,10 @@ export default class Registration extends Component {
                         </Row>
                    
                         <Button color='primary' onClick={this.register}>Sign Up</Button>
-                        <FormText>Already a user?>  Login here!</FormText>
+                      
                     </Form>
                 </RegistrationContainer>
-                </Container>
+                </Container><br/>
                 <Footer/>
             </div>
         )

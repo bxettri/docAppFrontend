@@ -13,13 +13,18 @@ import Registration from './components/Registration';
 import Dashboard from './components/Dashboard';
 import DocRegistration from './components/DocRegistration';
 import Profile from './components/Profile';
+import Appoinment from './components/Appoinment';
+import Rooms from './components/Rooms';
+
+import ViewDoctor from './components/ViewDoctors';
+import BookAppoinment from './components/BookAppoinment'
 
 
 function App() {
   return (
     <div>
 
-{/* <Dashboard/> */}
+{/* <Rooms/> */}
 
     { <BrowserRouter>
       <Route exact path ="/" component={Index}/>
@@ -27,7 +32,10 @@ function App() {
       <Route path= '/Registration' component={Registration}/>
       <Route path='/Dashboard' component={Dashboard}/>
       <Route path='/DocRegistration' component={DocRegistration}/>
+      <Route path='/Appointment' component={Appoinment}/>
       <Route path='/Profile' component={Profile}/>
+      <Route path='/viewdetails/:id' component={ViewDoctor}/>
+      <Route path='/bookAppoinment/:id' component={BookAppoinment}/>
       </BrowserRouter> } 
   
     

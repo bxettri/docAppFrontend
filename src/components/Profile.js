@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { InputGroup, InputGroupAddon, InputGroupText, Input, Container, Form, FormGroup, Label, Button, FormText, Col, Row } from 'reactstrap'
+import { InputGroup, InputGroupAddon, InputGroupText, CustomInput,  Input, Container, Form, FormGroup, Label, Button, FormText, Col, Row } from 'reactstrap'
 import { Link, Redirect } from 'react-router-dom'
 import Footer from './Footer'
 import Axios from 'axios'
 import Navigation2 from './Navigation2'
+import FileUploadButton from './FileUploadButton'
 
 export default class Profile extends Component {
     constructor(props) {
@@ -37,11 +38,11 @@ export default class Profile extends Component {
     uploadFile = (e) => {
         e.preventDefault();
         const data = new FormData()
-        data.append('myFile', this.state.selectedFile)
+        data.append('imageFile', this.state.selectedFile)
         Axios.post('http://localhost:3002/upload', data, this.state.config)
             .then((response) => {
                 this.setState({
-                    patient: { ...this.state.patient, image: response.data.filename }
+                    patient: { ...this.state.patient, profileImage: response.data.filename }
                 })
             }).catch((err) => console.log(err.response))
     }
@@ -49,7 +50,7 @@ export default class Profile extends Component {
     updatePatient = (e) => {
         e.preventDefault();
         Axios.put('http://localhost:3002/patient/updateProfile', this.state.patient, this.state.config)
-            .then((response) => console.log(response.data)).catch((err) => console.log(err.response))
+            .then((response) =>alert("Updated sucessfully")).catch((err) => console.log(err.response))
         //this.props.history.push('/dashboard');
     }
 
@@ -127,6 +128,15 @@ export default class Profile extends Component {
                                 </FormGroup>
                             </Col>
                         </Row>
+                        <FormGroup>
+                                <img className='img-thumbnail'
+                                    width='400' src={`http://localhost:3002/uploads/${this.state.patient.profileImage}`}
+                                    alt="profile" />
+                                <CustomInput type='file' id='profilePic'
+                                    onChange={this.handleFileSelect} />
+                                {this.state.selectedFile ? (<FileUploadButton
+                                    uploadFile={this.uploadFile} />) : null}
+                            </FormGroup>
                
                    
                         <Button color='primary' onClick={this.updatePatient}>Update Profile</Button>

@@ -5,6 +5,7 @@ import { Link, Redirect } from 'react-router-dom'
 import Navigation from './Navigation'
 import Footer from './Footer'
 import axios from 'axios'
+import Axios from 'axios'
 export default class Registration extends Component {
 
     constructor(props) {
@@ -18,8 +19,24 @@ export default class Registration extends Component {
             address:'',
             email:'',
             phoneNumber:'',
-            isRegistered: false
+            isRegistered: false,
+            categoryId:'',
+            categories:[],
+            categoryName:'',
+            speciality:''
+
         }
+    }
+
+    componentDidMount() {
+        Axios.get('http://localhost:3002/speciality', this.state)
+        .then((response) => {
+            console.log(response.body)
+            this.setState({
+                categories:response.data,
+                categoryId:response.data[0]._id
+            })
+        })
     }
 
 
@@ -33,7 +50,17 @@ export default class Registration extends Component {
         e.preventDefault();
         console.log(this.state);
 
-        axios.post('http://localhost:3002/doctor/signup', this.state)
+        axios.post('http://localhost:3002/doctor/docRegister', {
+            firstname: this.state.firstname,
+            lastname: this.state.lastename,
+            username: this.state.username,
+            password: this.state.password,
+            address:this.state.address,
+            email:this.state.email,
+            phoneNumber:this.state.phoneNumber,
+            categoryName:this.state.categoryName,
+            speciality:this.state.speciality
+        })
             .then((response) => {
                 console.log(response.data);
                 localStorage.setItem('token', response.data.token)
@@ -43,6 +70,7 @@ export default class Registration extends Component {
                     username: '',
                     password: '',
                     email:'',
+
                     phoneNumber:'',
                     isRegistered: true
                 });
@@ -114,6 +142,30 @@ export default class Registration extends Component {
                                 </FormGroup>
                             </Col>
                         </Row>
+                        <FormGroup>
+                            <label for="category">Category</label>
+                            <Input type="select" name="speciality" id="speciality" value={this.state.speciality}
+                            onChange={this.handleChange}>
+                                <option>Please select your department</option>
+                                <option>Dental</option>
+                                <option>ENT</option>
+                                <option>Lungs</option>
+                                <option>Brain</option>
+                                <option>Heart</option>
+                            </Input>
+                            </FormGroup>
+
+                        <FormGroup>
+                            <label for="category">Category</label>
+                            <Input type="select" name="categoryName" id="categoryName" value={this.state.categoryId}
+                            onChange={this.handleChange}>
+                               {
+                                   this.state.categories.map((categoryName) => {
+                                   return<option key={categoryName._id} value={categoryName._id}>{categoryName.categoryName}</option>
+                                   })
+                               }
+                            </Input>
+                            </FormGroup>
                         <Row>
                             <Col md={6}>
                                 <FormGroup>

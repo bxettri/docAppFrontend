@@ -31,13 +31,13 @@ function Footer() {
                         {/* Column 2 */}
 
                         <div className="col-md-3 col-sm-6">
-                            <h4>Demo Head</h4>
+                            <h4>Quick Links</h4>
                             <ul className="list-unstyled">
-                                <li><a href="/">demo demo</a></li>
-                                <li><a href="/">demo demo</a></li>
+                                <li><a href="/Appointment">Appointment</a></li>
+                                <li><a href="/">Home</a></li>
                     
-                                <li><a href="/">demo demo</a></li>
-                                <li><a href="/">demo demo</a></li>
+                                <li><a href="/About">About</a></li>
+                                <li><a href="/Registration">Registration</a></li>
                                 
                             </ul>
                         </div>
@@ -45,13 +45,13 @@ function Footer() {
                         {/* Column 3 */}
 
                         <div className="col-md-3 col-sm-6">
-                            <h4>Demo Head</h4>
+                            <h4>Get in touch</h4>
                             <ul className="list-unstyled">
-                                <li><a href="/">demo demo</a></li>
-                                <li><a href="/">demo demo</a></li>
+                                <li><a href="/">Facebook</a></li>
+                                <li><a href="/">Instagram</a></li>
                     
-                                <li><a href="/">demo demo</a></li>
-                                <li><a href="/">demo demo</a></li>
+                                <li><a href="/">Twitter</a></li>
+                                <li><a href="/">Snapchat</a></li>
                                 
                             </ul>
                         </div>
@@ -61,13 +61,13 @@ function Footer() {
                         {/* Column 4 */}
 
                         <div className="col-md-3 col-sm-6">
-                            <h4>Demo Head</h4>
+                            <h4>Our Partners</h4>
                             <ul className="list-unstyled">
-                                <li><a href="/">demo demo</a></li>
-                                <li><a href="/">demo demo</a></li>
+                                <li><a href="/">Sangam Inc.</a></li>
+                                <li><a href="/">CG Group</a></li>
                     
-                                <li><a href="/">demo demo</a></li>
-                                <li><a href="/">demo demo</a></li>
+                                <li><a href="/">Big 3</a></li>
+                                <li><a href="/">DocSity</a></li>
                                 
                             </ul>
                         </div>
